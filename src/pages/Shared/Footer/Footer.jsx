@@ -48,14 +48,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-center space-y-4 md:flex-row md:justify-between md:space-y-0 max-w-5xl">
-          <div className="text-center">
+        <div className="mt-8 flex flex-col  space-y-4 md:flex-row md:justify-between md:space-y-0 max-w-5xl">
+          <div className="">
             <h2 className="text-3xl font-bold">Wild Whimsies</h2>
             <p className="mt-2 text-sm">Unleash Your Wild Imagination</p>
           </div>
 
           <nav>
-            <ul className="flex flex-wrap justify-center space-x-4">
+            <ul className="flex flex-wrap md:justify-center space-x-4">
               <li>
                 <Link to="/" className="hover:text-gray-200">
                   Home
