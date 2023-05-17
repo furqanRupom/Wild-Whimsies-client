@@ -41,7 +41,7 @@ const Header = () => {
         <nav></nav>
       </div>
 
-      <nav className="bg-gray-100 p-2 flex justify-between items-center relative shadow-md">
+      <nav className="bg-gray-100 p-2 flex justify-between items-center relative shadow-2xl">
         <div className="lg:flex lg:items-center lg:justify-center lg:space-x-6">
           <img className="h-10 md:h-14 object-cover" src={logo} alt="" />
           <div className="hidden lg:flex space-x-8 items-center mt-2 font-Raleway font-[500]">
@@ -88,7 +88,7 @@ const Header = () => {
         <div
           className={
             open === true
-              ? "absolute w-full  duration-700 bg-gray-100"
+              ? "absolute w-full  duration-700 bg-gray-100 z-20"
               : "-translate-y-4"
           }
         >

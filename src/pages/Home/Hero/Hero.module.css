@@ -1,0 +1,9 @@
+.bgBanner {
+    position: relative;
+    height: 80vh;
+    background-image: url("https://assets.website-files.com/5badda2935e11303a89a461e/5baddd4835e113c6299a48f5_li-tzuni-507346-unsplash.jpg");
+    background-position: 50% 94%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
