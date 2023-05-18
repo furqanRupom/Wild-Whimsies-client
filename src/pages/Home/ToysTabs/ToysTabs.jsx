@@ -3,6 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import AwesomeStarsRating from 'react-awesome-stars-rating';
 import './ToysTabs.css';
 import 'react-tabs/style/react-tabs.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const ToysTabs = () => {
   const [tabToys, setTabToys] = useState([]);
@@ -20,9 +23,12 @@ const ToysTabs = () => {
     acc[toy.sub_category].push(toy);
     return acc;
   }, {});
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
-    <div className="container mx-auto p-4 mt-32 mb-16">
+    <div data-aos="zoom-in" className="container mx-auto p-4 mt-32 mb-16">
 
             <div>
                 <h3 className="text-4xl font-semibold font-Raleway">Sensory Toys</h3>

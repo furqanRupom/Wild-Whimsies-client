@@ -1,13 +1,26 @@
-const Gallery = () => {
-  return (
-    <div className="mt-32 mb-16">
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
-      <div className="text-center font-Raleway">
-        <h3 className="text-5xl font-bold text-lime-500">Wild Wonders</h3>
-        <p className="pt-4 leading-relaxed font-bold">Vibrant Whimsical Delight</p>
-      </div>
-      <div className="w-full h-[0.14rem] bg-lime-500 my-12"></div>
-      <div className="grid grid-cols-4 max-w-3xl mx-auto gap-5">
+const Gallery = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+  return (
+    <div data-aos="zoom-in" className="mt-32 mb-16">
+
+
+
+      <div>
+                <h3 className="text-4xl font-bold font-Raleway">Wild Wonders</h3>
+                <p>Vibrant Whimsical Delight</p>
+
+                <div className="w-full h-[0.14rem] bg-gray-100 mt-8 mb-16">
+                    <div className="w-36 bg-lime-500 h-full">
+                    </div>
+                </div>
+            </div>
+      <div className="grid grid-cols-4 max-w-3xl lg:max-w-4xl mx-auto gap-5">
         <div className="bg-white shadow rounded-lg">
           <img
             src="https://www.sendacuddly.co.uk/wp-content/uploads/2023/02/PIP3BL-350x435.jpeg"

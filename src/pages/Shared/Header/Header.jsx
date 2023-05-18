@@ -20,7 +20,7 @@ const Header = () => {
       <div>
         <div className="bg-lime-500 text-white flex justify-between px-4  py-1 items-center">
           <div className="flex space-x-2 lg:space-x-4 text-xs font-Raleway font-[500]">
-            <p>
+            <p className="hidden sm:block">
               Call us: +1 231 567 910
             </p>
             <p>
