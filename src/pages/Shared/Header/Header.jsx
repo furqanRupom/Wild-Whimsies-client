@@ -21,16 +21,16 @@ const Header = () => {
         <div className="bg-lime-500 text-white flex justify-between px-4  py-1 items-center">
           <div className="flex space-x-2 lg:space-x-4 text-xs font-Raleway font-[500]">
             <p>
-              <span>Call us:</span> +1 231 567 910
+              Call us: +1 231 567 910
             </p>
             <p>
               <span>
-                Email : <span className="underline">info@wildwhimsies.com</span>
+                Email:<span className="underline">info@wildwhimsies.com</span>
               </span>
             </p>
           </div>
 
-          <div className="flex space-x-3 ">
+          <div className="flex space-x-3 text-xs md:text-base">
             <FaFacebook />
             <FaInstagram />
             <FaPinterest />

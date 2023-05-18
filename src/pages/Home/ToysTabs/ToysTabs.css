@@ -1,0 +1,9 @@
+.react-tabs__tab--selected{
+    --tw-bg-opacity: 1;
+    background-color: rgb(132 204 22 / var(--tw-bg-opacity))!important;
+    color: white !important;
+    border-radius: 5px 5px 0 0;
+}
+span{
+  display: flex;
+}
