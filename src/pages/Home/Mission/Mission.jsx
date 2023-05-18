@@ -4,7 +4,7 @@ import missionImg from "../../../assets/mission.png";
 const Mission = () => {
   return (
     <section className="mt-32 mb-16">
-     <h2 className="text-3xl font-Raleway font-semibold">
+     <h2 className=" text-xl md:text-3xl font-Raleway font-semibold">
             Our Mission for Wild Whimsies
           </h2>
           <p>
@@ -13,7 +13,7 @@ const Mission = () => {
       <div className="w-full h-[0.14rem] bg-gray-100 mt-8 mb-16">
         <div className="w-36 bg-lime-500 h-full"></div>
       </div>
-      <section className=" py-10 grid grid-cols-2 gap-5 ">
+      <section className=" py-10 grid  lg:grid-cols-2 gap-5 ">
         <div className="container mx-auto">
 
           <blockquote className=" text-gray-700 mb-8">
@@ -53,7 +53,7 @@ const Mission = () => {
         <div>
           <img
             src={missionImg}
-            className="h-full object-cover rounded-[100%]"
+            className="h-full mx-auto lg:mx-0 object-cover rounded-[100%]"
             alt=""
           />
         </div>
