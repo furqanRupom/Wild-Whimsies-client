@@ -2,9 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { ToysContext } from "../../Providers/AuthProviders";
 import MyToysDetails from "./MyToysDetails";
 import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
+import useTitle from "../../Hooks/useTittle";
 
 const MyToys = () => {
   const { user } = useContext(ToysContext);
+  const location = useLocation()
+  const routesName = location.pathname
+  useTitle(routesName .slice(1));
   console.log(user)
   const [myToys, setMyToys] = useState([]);
   useEffect(() => {

@@ -20,26 +20,26 @@ const router = createBrowserRouter([
                 element:<Home />
             },
             {
-                path:"/login",
+                path:"login",
                 element:<Login />
             },
             {
-                path:"/register",
+                path:"register",
                 element:<Register />
             },
             {
-                path:"/AddToys",
+                path:"AddToys",
                 element:<AddToysForm />
             },
             {
-                path:"/AllToys",
+                path:"AllToys",
                 element:<AllToys />,
             },{
-                path:"/MyToys",
+                path:"MyToys",
                 element:<PrivateRoute><MyToys /></PrivateRoute>
             },
             {
-                path:"/updateToys/:id",
+                path:"updateToys/:id",
                 element:<UpdateToys />,
                 loader:({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
             },

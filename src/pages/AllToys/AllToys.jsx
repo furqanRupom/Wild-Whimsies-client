@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react";
 import AllToysDetails from "./AllToysDetails";
+import useTitle from "../../Hooks/useTittle";
+import { useLocation } from "react-router-dom";
 
 const AllToys = () => {
     const [toys,setToys] = useState([]);
+    const location = useLocation()
+    const name = location.pathname
+    console.log(name)
+
     useEffect(()=>{
             fetch('http://localhost:5000/toys')
             .then(res=>res.json())
             .then(data => setToys(data))
     },[])
+    useTitle(name.slice(1));
 
   return (
     <div className="mb-32 mt-8">

@@ -1,8 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 import AwesomeStarsRating from "react-awesome-stars-rating";
 import { Toaster, toast } from "react-hot-toast";
+import useTitle from "../../Hooks/useTittle";
 
 const SingleToys = () => {
+    const location = useLocation()
+    const routesName = location.pathname
+    useTitle(routesName .slice(1));
   const {
     _id,
     sellerName,

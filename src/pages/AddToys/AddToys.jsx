@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ToysContext } from "../../Providers/AuthProviders";
 import { Toaster, toast } from "react-hot-toast";
+import useTitle from "../../Hooks/useTittle";
 
 const AddToysForm = () => {
   const { user } = useContext(ToysContext);
@@ -12,6 +13,9 @@ const AddToysForm = () => {
   const [rating, setRating] = useState(0);
   const [price,setPrice] = useState(0);
   const [description, setDescription] = useState("");
+  const location = useLocation()
+  const routesName = location.pathname
+  useTitle(routesName .slice(1));
 
   const handleSubmit = (e) => {
     const form = e.target

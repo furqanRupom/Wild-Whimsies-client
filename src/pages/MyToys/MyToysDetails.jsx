@@ -1,10 +1,14 @@
 import AwesomeStarsRating from "react-awesome-stars-rating";
-import { GrUpdate } from "react-icons/gr";
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import "./MyToys.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import useTitle from "../../Hooks/useTittle";
 
 const MyToysDetails = ({ toy, deleteToysSubmit }) => {
+
+  const location = useLocation()
+  const routesName = location.pathname
+  useTitle(routesName .slice(1));
   const {
     sellerName,
     name,
@@ -15,6 +19,9 @@ const MyToysDetails = ({ toy, deleteToysSubmit }) => {
     image,
     _id,
   } = toy;
+
+
+
 
   return (
     <>
@@ -41,7 +48,7 @@ const MyToysDetails = ({ toy, deleteToysSubmit }) => {
           </button>
         </td>
         <td className="text-lg text-white">
-          <Link to={`/updateToys/$`}>
+          <Link to={`/updateToys/${_id}`}>
             <div className="bg-lime-500 p-2 inline-flex items-center rounded-full hover:bg-lime-600">
               <ArrowPathIcon className="w-5 h-5 cursor-pointer " />
             </div>

@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import useTitle from "../../Hooks/useTittle";
 
 const AllToysDetails = ({ toy }) => {
+  const location = useLocation()
+  const routesName = location.pathname
+  useTitle(routesName .slice(1));
   const {_id, sellerName, name, price, sub_category, quantity_available, image } =
     toy;
   return (

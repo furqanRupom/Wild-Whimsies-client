@@ -1,12 +1,16 @@
+import { useLocation } from "react-router-dom";
 import About from "../About/About";
 import Gallery from "../Gallery/Gallery";
 import Hero from "../Hero/Hero";
 import Mission from "../Mission/Mission";
 import ToysTabs from "../ToysTabs/ToysTabs";
 import {FaPaperPlane} from 'react-icons/fa';
+import useTitle from "../../../Hooks/useTittle";
 
 const  Home = () => {
-
+    const location = useLocation()
+    const routesName = location.pathname
+    useTitle(routesName .slice(1));
     return (
         <div>
               <Hero />
