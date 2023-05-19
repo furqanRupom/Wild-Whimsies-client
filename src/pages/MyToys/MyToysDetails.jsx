@@ -41,8 +41,8 @@ const MyToysDetails = ({ toy, deleteToysSubmit }) => {
           </button>
         </td>
         <td className="text-lg text-white">
-          <Link to={`/updateToys/${_id}`}>
-            <div className="bg-lime-500 p-2 rounded-full hover:bg-lime-600">
+          <Link to={`/updateToys/$`}>
+            <div className="bg-lime-500 p-2 inline-flex items-center rounded-full hover:bg-lime-600">
               <ArrowPathIcon className="w-5 h-5 cursor-pointer " />
             </div>
           </Link>
@@ -78,9 +78,12 @@ const MyToysDetails = ({ toy, deleteToysSubmit }) => {
 
         <td className=" py-2 my-3">{quantity_available}</td>
         <td>
+          <Link to={`/singleToys/${_id}`}>
           <button className="bg-lime-500 rounded-lg hover:bg-lime-600 text-white p-3">
             Details More
           </button>
+          </Link>
+
         </td>
       </tr>
     </>

@@ -5,6 +5,7 @@ import './ToysTabs.css';
 import 'react-tabs/style/react-tabs.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 
 const ToysTabs = () => {
@@ -80,9 +81,11 @@ const ToysTabs = () => {
                       }}
                     />
                   </div>
+                  <Link to={`/singleToys/${toy?._id}`}>
                   <button className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
                     View Details
                   </button>
+                  </Link>
                 </div>
               ))}
             </div>

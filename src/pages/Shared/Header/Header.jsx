@@ -65,7 +65,7 @@ const Header = () => {
                 <Link className="hover:underline" to="/AddToys">
                   Add new toys
                 </Link>
-                <Link className="hover:underline" to="/">
+                <Link className="hover:underline" to="/blogs">
                   Blogs
                 </Link>
                 <button
@@ -145,12 +145,12 @@ const Header = () => {
                     </Link>
                   </li>
                   <li className="border-b-2 p-3  transition-all">
-                    <Link className="hover:underline" to="/">
+                    <Link className="hover:underline" to="/AddToys">
                       Add new toys
                     </Link>
                   </li>
                   <li className="border-b-2 p-3  transition-all">
-                    <Link className="hover:underline" to="/">
+                    <Link className="hover:underline" to="/blogs">
                       Blogs
                     </Link>
                   </li>

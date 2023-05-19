@@ -7,7 +7,9 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
     const {user,loading} = useContext(ToysContext)
     if(loading){
-        return <div className='animate-spin h-[500px] flex items-center justify-center'><FaSpinner className="text-4xl" /></div>
+        return <div className="absolute w-full h-full inset-0 bg-white overflow-hidden">
+             <div className='animate-spin h-full flex items-center justify-center'><FaSpinner className="text-5xl text-lime-500" /></div>
+        </div>
     }
     if(user){
         return children
