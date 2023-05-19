@@ -11,7 +11,7 @@ const ToysTabs = () => {
   const [tabToys, setTabToys] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/tabToys')
+    fetch('http://localhost:5000/toys')
       .then((res) => res.json())
       .then((data) => setTabToys(data));
   }, []);

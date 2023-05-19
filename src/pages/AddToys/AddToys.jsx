@@ -50,7 +50,7 @@ const AddToysForm = () => {
     })
     .then(res=>res.json())
     .then(data=>console.log(data))
-    toast.success('new toys successfully created!')
+    toast.success('new toys successfully added!')
     // Reset form fields
     setImage("");
     setName("");
