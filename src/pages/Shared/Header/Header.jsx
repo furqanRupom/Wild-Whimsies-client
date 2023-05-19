@@ -62,8 +62,11 @@ const Header = () => {
                 <Link className="hover:underline" to="/">
                   My toys
                 </Link>
-                <Link className="hover:underline" to="/">
+                <Link className="hover:underline" to="/AddToys">
                   Add new toys
+                </Link>
+                <Link className="hover:underline" to="/">
+                  Blogs
                 </Link>
                 <button
                   onClick={handleLogOut}
@@ -73,14 +76,15 @@ const Header = () => {
                 </button>
               </>
             ) : (
-              <Link className="hover:underline" to="/login">
-                Login
-              </Link>
+              <>
+                <Link className="hover:underline" to="/">
+                  Blogs
+                </Link>
+                <Link className="hover:underline" to="/login">
+                  Login
+                </Link>
+              </>
             )}
-
-            <Link className="hover:underline" to="/">
-              Blogs
-            </Link>
           </div>
         </div>
 
@@ -146,6 +150,11 @@ const Header = () => {
                     </Link>
                   </li>
                   <li className="border-b-2 p-3  transition-all">
+                    <Link className="hover:underline" to="/">
+                      Blogs
+                    </Link>
+                  </li>
+                  <li className="border-b-2 p-3  transition-all">
                     <button
                       onClick={handleLogOut}
                       className="hover:underline cursor-pointer"
@@ -155,18 +164,19 @@ const Header = () => {
                   </li>
                 </>
               ) : (
-                <li className="border-b-2 p-3  transition-all">
-                  <Link className="hover:underline" to="/login">
-                    Login
-                  </Link>
-                </li>
+                <>
+                  <li className="border-b-2 p-3  transition-all">
+                    <Link className="hover:underline" to="/">
+                      Blogs
+                    </Link>
+                  </li>
+                  <li className="border-b-2 p-3  transition-all">
+                    <Link className="hover:underline" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                </>
               )}
-
-              <li className="border-b-2 p-3  transition-all">
-                <Link className="hover:underline" to="/">
-                  Blogs
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
