@@ -1,0 +1,84 @@
+import AwesomeStarsRating from "react-awesome-stars-rating";
+import {GrUpdate} from 'react-icons/gr'
+import {ArrowPathIcon } from '@heroicons/react/24/solid'
+import "./MyToys.css";
+const MyToysDetails = ({ toy }) => {
+  const {
+    sellerName,
+    name,
+    price,
+    sub_category,
+    quantity_available,
+    rating,
+    image,
+  } = toy;
+  return (
+    <>
+      <tr >
+        <td >
+
+        <button className="btn btn-sm bg-lime-500 btn-circle border-none hover:bg-lime-600 my-auto">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        </td>
+        <td className="text-lg text-white">
+          <div className="bg-lime-500 p-2 rounded-full hover:bg-lime-600">
+
+          <ArrowPathIcon className="w-5 h-5 cursor-pointer "/>
+          </div>
+        </td>
+        <td className=" py-2 my-3">
+          <img
+            className="w-20 h-20 rounded-full object-cover"
+            src={image}
+            alt=""
+          />
+        </td>
+        <td className=" py-2 my-3">{sellerName}</td>
+        <td className=" py-2 my-3">{name}</td>
+
+        <td className=" py-2 my-3">{sub_category}</td>
+        <td className=" py-2 my-3">${price}</td>
+        <td className=" py-2 my-3">
+          <div
+            className="py-3"
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <AwesomeStarsRating
+              value={rating}
+              size={20}
+              isEdit={false}
+              classNames={{
+                hover: "awesome-stars-rating-hover",
+                selected: "awesome-stars-rating-selected",
+              }}
+            />
+          </div>
+        </td>
+
+        <td className=" py-2 my-3">{quantity_available}</td>
+        <td>
+          <button className="bg-lime-500 rounded-lg hover:bg-lime-600 text-white p-3">
+            Details More
+          </button>
+        </td>
+      </tr>
+    </>
+  );
+};
+
+export default MyToysDetails;

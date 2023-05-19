@@ -17,6 +17,7 @@ const AllToys = () => {
       </div>
         <table className="table table-zebra w-full my-12 ">
             <thead className="text-left font-Raleway font-semibold">
+                <th>toy image</th>
                 <th>Seller</th>
                 <th>Toy Name</th>
                 <th>Sub category</th>

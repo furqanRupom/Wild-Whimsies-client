@@ -43,7 +43,7 @@ const Header = () => {
           </div>
         </div>
 
-        <nav></nav>
+
       </div>
 
       <nav className="bg-gray-100 p-2 flex justify-between items-center relative shadow">
@@ -59,7 +59,7 @@ const Header = () => {
 
             {user ? (
               <>
-                <Link className="hover:underline" to="/">
+                <Link className="hover:underline" to="/MyToys">
                   My toys
                 </Link>
                 <Link className="hover:underline" to="/AddToys">
@@ -89,7 +89,7 @@ const Header = () => {
         </div>
 
         <div className="flex items-center space-x-4 text-lg relative">
-          <Link>Cart</Link>
+          <Link className="hidden sm:block">Cart</Link>
           <Link>
             <FaShoppingBag className="text-lime-500" />
           </Link>
@@ -140,7 +140,7 @@ const Header = () => {
               {user ? (
                 <>
                   <li className="border-b-2 p-3 transition-all">
-                    <Link className="hover:underline" to="/">
+                    <Link className="hover:underline" to="/MyToys">
                       My toys
                     </Link>
                   </li>

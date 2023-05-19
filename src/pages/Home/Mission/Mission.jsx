@@ -53,7 +53,7 @@ const Mission = () => {
         <div>
           <img
             src={missionImg}
-            className="h-full mx-auto lg:mx-0 object-cover rounded-[100%]"
+            className="h-full mx-auto lg:mx-0 object-cover rounded-[100%] ring ring-lime-300 "
             alt=""
           />
         </div>
