@@ -1,14 +1,33 @@
+import { Toaster, toast } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateToys = () => {
-    const {_id,price,quantity_available,description} = useLoaderData();
-    console.log(_id)
+    const {_id,price,quantity_available,description,name} = useLoaderData();
     const handleToyUpdate = (e)=>{
         e.preventDefault();
         const form = e.target;
         const price = form.price.value;
         const description = form.description.value;
-        const quantity = form.quantity.value;
+        const quantity_available = form.quantity.value;
+        const updateInfo = {
+            price,
+            description,
+            quantity_available
+        }
+
+        fetch(`http://localhost:5000/toys/${_id}`,{
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(updateInfo)
+        })
+        .then(res=> res.json())
+        .then(data =>{
+            if(data.modifiedCount > 0){
+                toast.success(`${name} Toys Updated Successfully`)
+            }
+        })
     }
   return (
     <div>
@@ -81,6 +100,33 @@ const UpdateToys = () => {
         </button>
 
     </form>
+
+    <Toaster
+        containerStyle={{
+          top: 100,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+        toastOptions={{
+
+          style: {
+            background: "#fff",
+            color: "#84cc16",
+            width: "300px",
+            fontWeight: "bold",
+            zIndex: "200",
+          },
+          success: {
+            iconTheme: {
+              primary: "#84cc16",
+              secondary: "#fff",
+            },
+          },
+        }}
+        duration="5000"
+        position="top-center"
+      />
     </div>
   );
 };
