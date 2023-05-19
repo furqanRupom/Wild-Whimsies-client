@@ -1,9 +1,10 @@
 import AwesomeStarsRating from "react-awesome-stars-rating";
-import {GrUpdate} from 'react-icons/gr'
-import {ArrowPathIcon } from '@heroicons/react/24/solid'
+import { GrUpdate } from "react-icons/gr";
+import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import "./MyToys.css";
+import { Link } from "react-router-dom";
 
-const MyToysDetails = ({ toy ,deleteToysSubmit}) => {
+const MyToysDetails = ({ toy, deleteToysSubmit }) => {
   const {
     sellerName,
     name,
@@ -12,38 +13,39 @@ const MyToysDetails = ({ toy ,deleteToysSubmit}) => {
     quantity_available,
     rating,
     image,
-    _id
+    _id,
   } = toy;
-
 
   return (
     <>
-      <tr >
-        <td >
-
-        <button onClick={()=> deleteToysSubmit(_id)} className="btn btn-sm bg-lime-500 btn-circle border-none hover:bg-lime-600 my-auto">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+      <tr>
+        <td>
+          <button
+            onClick={() => deleteToysSubmit(_id)}
+            className="btn btn-sm bg-lime-500 btn-circle border-none hover:bg-lime-600 my-auto"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </td>
         <td className="text-lg text-white">
-          <div className="bg-lime-500 p-2 rounded-full hover:bg-lime-600">
-
-          <ArrowPathIcon className="w-5 h-5 cursor-pointer "/>
-          </div>
+          <Link to={`/updateToys/${_id}`}>
+            <div className="bg-lime-500 p-2 rounded-full hover:bg-lime-600">
+              <ArrowPathIcon className="w-5 h-5 cursor-pointer " />
+            </div>
+          </Link>
         </td>
         <td className=" py-2 my-3">
           <img
