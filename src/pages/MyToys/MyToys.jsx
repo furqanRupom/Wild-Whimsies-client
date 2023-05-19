@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ToysContext } from "../../Providers/AuthProviders";
 import MyToysDetails from "./MyToysDetails";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(ToysContext);
@@ -10,6 +11,39 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => setMyToys(data));
   });
+
+  const deleteToysSubmit = (id)=>{
+    console.log(id)
+    Swal.fire({
+      title: 'Deleting this will remove it permanently',
+      text: "Are you sure you want to proceed?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'rgb(132 204 22)',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        fetch(`http://localhost:5000/toys/${id}`,{
+          method:'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+          Swal.fire(
+            'Deleted!',
+            'Your Toys has been deleted.',
+            'success'
+          )
+        })
+        const remaining = myToys.filter(ty => ty._id !== id)
+        setMyToys(remaining);
+
+      }
+    })
+
+  }
   return (
     <div >
       <h3 className="font-Raleway text-3xl font-bold pt-16">My Toys</h3>
@@ -33,7 +67,7 @@ const MyToys = () => {
 
             <tbody>
               {
-                myToys.map(toy=> <MyToysDetails key={toy._id} toy={toy} />)
+                myToys.map(toy=> <MyToysDetails key={toy._id} toy={toy} deleteToysSubmit={deleteToysSubmit} />)
               }
             </tbody>
       </table>

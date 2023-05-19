@@ -2,7 +2,8 @@ import AwesomeStarsRating from "react-awesome-stars-rating";
 import {GrUpdate} from 'react-icons/gr'
 import {ArrowPathIcon } from '@heroicons/react/24/solid'
 import "./MyToys.css";
-const MyToysDetails = ({ toy }) => {
+
+const MyToysDetails = ({ toy ,deleteToysSubmit}) => {
   const {
     sellerName,
     name,
@@ -11,13 +12,16 @@ const MyToysDetails = ({ toy }) => {
     quantity_available,
     rating,
     image,
+    _id
   } = toy;
+
+
   return (
     <>
       <tr >
         <td >
 
-        <button className="btn btn-sm bg-lime-500 btn-circle border-none hover:bg-lime-600 my-auto">
+        <button onClick={()=> deleteToysSubmit(_id)} className="btn btn-sm bg-lime-500 btn-circle border-none hover:bg-lime-600 my-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
