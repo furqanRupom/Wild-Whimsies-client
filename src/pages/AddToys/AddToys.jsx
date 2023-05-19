@@ -10,6 +10,7 @@ const AddToysForm = () => {
   const [subCategory, setSubCategory] = useState("");
   const [quantityAvailable, setQuantityAvailable] = useState(0);
   const [rating, setRating] = useState(0);
+  const [price,setPrice] = useState(0);
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
@@ -20,11 +21,35 @@ const AddToysForm = () => {
       sellerEmail: user?.email,
       name,
       image,
+      description,
       sub_category:subCategory,
       quantity_available: quantityAvailable,
       rating,
-      description,
+      price
+
     });
+
+    const toysInfo = {
+        sellerName: user?.displayName,
+        sellerEmail: user?.email,
+        name,
+        image,
+        description,
+        sub_category:subCategory,
+        quantity_available: quantityAvailable,
+        price,
+        rating,
+    }
+
+    fetch('http://localhost:5000/toys',{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify(toysInfo)
+    })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
     toast.success('new toys successfully created!')
     // Reset form fields
     setImage("");
@@ -33,6 +58,7 @@ const AddToysForm = () => {
     setQuantityAvailable(0);
     setRating(0);
     setDescription("");
+    setPrice(0)
     form.reset()
   };
 
@@ -83,10 +109,10 @@ const AddToysForm = () => {
           </div>
         </div>
         <div className="grid sm:grid-cols-2 gap-6 mt-6">
-          <div className="mt-6">
+          <div className="mt-2">
             <label
               htmlFor="subCategory"
-              className="block mb-2 font-medium text-gray-700"
+              className="block  font-medium text-gray-700"
             >
               Sub Category
             </label>
@@ -139,6 +165,23 @@ const AddToysForm = () => {
               required
             />
           </div>
+          <div>
+            <label
+              htmlFor="price"
+              className="block mb-2 font-medium text-gray-700"
+            >
+              Price
+            </label>
+            <input
+              type="number"
+              id="price"
+              className="w-full px-4 py-3 bg-white border border-gray-300 rounded focus:outline-none focus:ring-lime-500 focus:border-lime-500"
+              placeholder="Enter Price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+          </div>
         </div>
         <div className="mt-6">
           <label
@@ -159,7 +202,7 @@ const AddToysForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full mt-6 py-4 bg-lime-500 text-white font-semibold rounded-md hover:bg-lime-600 focus:outline-none focus:bg-lime-600"
+          className="w-full mt-6 py-4 bg-lime-500 text-white font-semibold rounded-md hover:bg-lime-600 "
         >
           Add Toy
         </button>
