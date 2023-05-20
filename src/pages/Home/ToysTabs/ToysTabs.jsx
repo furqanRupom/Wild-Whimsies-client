@@ -28,6 +28,8 @@ const ToysTabs = () => {
     AOS.init();
   }, []);
 
+
+
   return (
     <div data-aos="zoom-in" className="container mx-auto p-4 mt-32 mb-16">
 
@@ -53,7 +55,7 @@ const ToysTabs = () => {
 
         {Object.keys(toysByCategory).map((category, index) => (
           <TabPanel key={index}>
-            <div className="grid  md:grid-cols-2 gap-4 mt-32 mb-8">
+            <div className="grid md:grid-cols-2 gap-4 mt-32 mb-8">
               {toysByCategory[category].map((toy, index) => (
                 <div
                   key={index}
@@ -82,9 +84,9 @@ const ToysTabs = () => {
                     />
                   </div>
                   <Link to={`/singleToys/${toy?._id}`}>
-                  <button className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
-                    View Details
-                  </button>
+                    <button className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
+                      View Details
+                    </button>
                   </Link>
                 </div>
               ))}
@@ -92,6 +94,8 @@ const ToysTabs = () => {
           </TabPanel>
         ))}
       </Tabs>
+
+
     </div>
   );
 };
