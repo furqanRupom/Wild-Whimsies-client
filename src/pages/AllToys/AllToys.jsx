@@ -18,7 +18,7 @@ const AllToys = () => {
     fetchToys(20);
   }, []);
   const fetchToys = (limit) => {
-    const url = `http://localhost:5000/toys?limit=${limit}}`;
+    const url = `https://wild-whimsies-server.vercel.app/toys?limit=${limit}}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -31,14 +31,14 @@ const AllToys = () => {
 
   const handleShowMore = () => {
     SetDisappear(false);
-    fetch("http://localhost:5000/AllToys")
+    fetch("https://wild-whimsies-server.vercel.app/AllToys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   };
 
   const handleSearchQueryChange = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/SearchToys/${searchName}`)
+    fetch(`https://wild-whimsies-server.vercel.app/SearchToys/${searchName}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   };

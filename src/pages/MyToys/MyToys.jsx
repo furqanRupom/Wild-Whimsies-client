@@ -8,8 +8,8 @@ import { handler } from "daisyui";
 
 const MyToys = () => {
   const { user } = useContext(ToysContext);
-  const [sortOrder, setSortOrder] = useState('');
-  const [sortBy, setSortBy] = useState('')
+  const [sortOrder, setSortOrder] = useState("");
+  const [sortBy, setSortBy] = useState("");
   const location = useLocation();
   const routesName = location.pathname;
   useTitle(routesName.slice(1));
@@ -17,7 +17,7 @@ const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
 
   const fetchData = () => {
-    let url = `http://localhost:5000/MyToys?sellerEmail=${user?.email}&sortOrder=${sortOrder}`;
+    let url = `https://wild-whimsies-server.vercel.app/MyToys?sellerEmail=${user?.email}&sortOrder=${sortOrder}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -32,18 +32,9 @@ const MyToys = () => {
     fetchData();
   }, [sortOrder]);
 
-
-
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);
   };
-
-
-
-
-
-
-
 
   const deleteToysSubmit = (id) => {
     console.log(id);
@@ -57,7 +48,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://wild-whimsies-server.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -77,31 +68,24 @@ const MyToys = () => {
         <div className="w-36 bg-lime-500 h-full"></div>
       </div>
       <div>
-
-
-
-
-
-      <div className="flex justify-end">
-        <div className="">
-      <select
-
-        id="sortOrder"
-        value={sortOrder}
-        onChange={handleSortChange}
-        className="block  bg-white border border-lime-400 hover:border-lime-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-      >
-        <option value="">sort by price</option>
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-      </select>
+        <div className="flex justify-end">
+          <div className="">
+            <select
+              id="sortOrder"
+              value={sortOrder}
+              onChange={handleSortChange}
+              className="block  bg-white border border-lime-400 hover:border-lime-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+            >
+              <option value="">sort by price</option>
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </div>
         </div>
+
+        {/* Render the toy data */}
+        {/* Render the toy data */}
       </div>
-
-
-      {/* Render the toy data */}
-      {/* Render the toy data */}
-    </div>
       <table className="table table-zebra w-full mt-12 mb-16">
         <thead className="text-left font-Raleway font-semibold">
           <th></th>

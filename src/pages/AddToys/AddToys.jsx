@@ -11,14 +11,14 @@ const AddToysForm = () => {
   const [subCategory, setSubCategory] = useState("");
   const [quantityAvailable, setQuantityAvailable] = useState(0);
   const [rating, setRating] = useState(0);
-  const [price,setPrice] = useState(0);
+  const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const location = useLocation()
-  const routesName = location.pathname
-  useTitle(routesName .slice(1));
+  const location = useLocation();
+  const routesName = location.pathname;
+  useTitle(routesName.slice(1));
 
   const handleSubmit = (e) => {
-    const form = e.target
+    const form = e.target;
     e.preventDefault();
     console.log("Form submitted:", {
       sellerName: user?.displayName,
@@ -26,35 +26,34 @@ const AddToysForm = () => {
       name,
       image,
       description,
-      sub_category:subCategory,
+      sub_category: subCategory,
       quantity_available: quantityAvailable,
       rating,
-      price
-
+      price,
     });
 
     const toysInfo = {
-        sellerName: user?.displayName,
-        sellerEmail: user?.email,
-        name,
-        image,
-        description,
-        sub_category:subCategory,
-        quantity_available: quantityAvailable,
-        price,
-        rating,
-    }
+      sellerName: user?.displayName,
+      sellerEmail: user?.email,
+      name,
+      image,
+      description,
+      sub_category: subCategory,
+      quantity_available: quantityAvailable,
+      price,
+      rating,
+    };
 
-    fetch('http://localhost:5000/toys',{
-        method:'POST',
-        headers:{
-            'content-type':'application/json'
-        },
-        body:JSON.stringify(toysInfo)
+    fetch("https://wild-whimsies-server.vercel.app/toys", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(toysInfo),
     })
-    .then(res=>res.json())
-    .then(data=>console.log(data))
-    toast.success('new toys successfully added!')
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    toast.success("new toys successfully added!");
     // Reset form fields
     setImage("");
     setName("");
@@ -62,8 +61,8 @@ const AddToysForm = () => {
     setQuantityAvailable(0);
     setRating(0);
     setDescription("");
-    setPrice(0)
-    form.reset()
+    setPrice(0);
+    form.reset();
   };
 
   return (
@@ -127,7 +126,7 @@ const AddToysForm = () => {
               onChange={(e) => setSubCategory(e.target.value)}
               required
             >
-                <option value="">Select sub-category</option>
+              <option value="">Select sub-category</option>
               <option value="Teddy Bears Toys">Teddy Bears Toys</option>
               <option value="Cats Toys">Cats Toys</option>
               <option value="Dogs Toys">Dogs Toys</option>
@@ -220,7 +219,6 @@ const AddToysForm = () => {
           right: 20,
         }}
         toastOptions={{
-
           style: {
             background: "#fff",
             color: "#84cc16",
