@@ -71,7 +71,7 @@ const MyToys = () => {
     });
   };
   return (
-    <div>
+    <div className="min-h-screen">
       <h3 className="font-Raleway text-3xl font-bold pt-16">My Toys</h3>
       <div className="w-full h-[0.14rem] bg-gray-100 mt-8 mb-4">
         <div className="w-36 bg-lime-500 h-full"></div>
