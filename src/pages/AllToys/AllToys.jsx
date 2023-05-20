@@ -13,21 +13,28 @@ const AllToys = () => {
   useTitle(name.slice(1));
   const [showMore, setShowMore] = useState(false);
   const [skip, setSkip] = useState(0);
-  useEffect(() => {
-    fetchToys(20, 0);
-  }, []);
 
-  const fetchToys = (limit, skipValue) => {
-    const url = `http://localhost:5000/toys?limit=${limit}&skip=${skipValue}`
+  useEffect(() => {
+    fetchToys(20);
+  }, []);
+  const fetchToys = (limit) => {
+    const url = `http://localhost:5000/toys?limit=${limit}}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setToys(data);
-        setShowMore(data.length === limit);
+        setToys(data); // Append new toys to the existing toys
       })
       .catch((err) => console.error('Error fetching toys:', err));
   };
 
+  const [disappear ,SetDisappear] = useState(true)
+
+  const handleShowMore = () => {
+    SetDisappear(false);
+    fetch('http://localhost:5000/AllToys')
+    .then(res=>res.json())
+    .then(data=> setToys(data))
+  }
 
 
 
@@ -43,10 +50,6 @@ const AllToys = () => {
 
 
 
-  const handleShowMore = () => {
-    fetchToys(-1, skip + 20);
-    setSkip((prevSkip) => prevSkip + 20);
-  };
 
 
 
@@ -82,14 +85,14 @@ const AllToys = () => {
         </tbody>
       </table>
 
-      {
-        toys.length>= 20 && <button
-        className="px-7 py-3 rounded-lg bg-lime-500 text-white"
+
+         <button
+        className={toys.length  >= 20  && disappear === true? 'px-7 py-3 rounded-lg bg-lime-500 text-white':'hidden'}
         onClick={handleShowMore}
       >
         Show More
       </button>
-      }
+
 
 
     </div>

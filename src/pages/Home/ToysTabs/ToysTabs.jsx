@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 const ToysTabs = () => {
   const [tabToys, setTabToys] = useState([]);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:5000/toys')
@@ -24,9 +25,16 @@ const ToysTabs = () => {
     acc[toy.sub_category].push(toy);
     return acc;
   }, {});
+
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const handleShowMore = () => {
+    setShowMore(true);
+  };
+
+
 
 
 
@@ -56,44 +64,88 @@ const ToysTabs = () => {
         {Object.keys(toysByCategory).map((category, index) => (
           <TabPanel key={index}>
             <div className="grid md:grid-cols-2 gap-4 mt-32 mb-8">
-              {toysByCategory[category].map((toy, index) => (
-                <div
-                  key={index}
-                  className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                  <h3 className="text-xl font-semibold mb-2">{toy.name}</h3>
-                  <div className="aspect-w-16 aspect-h-9">
-                    <img
-                      height={100}
-                      src={toy.image}
-                      alt={toy.name}
-                      className="w-full h-96 object-contain"
-                    />
+            {
+
+                showMore ?
+                toysByCategory[category].map((toy, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <h3 className="text-xl font-semibold mb-2">{toy.name}</h3>
+                    <div className="aspect-w-16 aspect-h-9">
+                      <img
+                        height={100}
+                        src={toy.image}
+                        alt={toy.name}
+                        className="w-full h-96 object-contain"
+                      />
+                    </div>
+                    <p className="text-gray-600 py-3">{toy.description}</p>
+                    <p>Price: ${toy.price}</p>
+                    <div className="py-3" style={{ display: 'flex', alignItems: 'center' }}>
+                      <AwesomeStarsRating
+                        value={toy.rating}
+                        size={20}
+                        isEdit={false}
+                        classNames={{
+                          hover: 'awesome-stars-rating-hover',
+                          selected: 'awesome-stars-rating-selected',
+                        }}
+                      />
+                    </div>
+                    <Link to={`/singleToys/${toy?._id}`}>
+                      <button className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
+                        View Details
+                      </button>
+                    </Link>
                   </div>
-                  <p className="text-gray-600 py-3">{toy.description}</p>
-                  <p>Price: ${toy.price}</p>
-                  <div className="py-3" style={{ display: 'flex', alignItems: 'center' }}>
-                    <AwesomeStarsRating
-                      value={toy.rating}
-                      size={20}
-                      isEdit={false}
-                      classNames={{
-                        hover: 'awesome-stars-rating-hover',
-                        selected: 'awesome-stars-rating-selected',
-                      }}
-                    />
+                )):
+                toysByCategory[category].slice(0, 2).map((toy, index) => (
+                  <div
+                    key={index}
+                    className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <h3 className="text-xl font-semibold mb-2">{toy.name}</h3>
+                    <div className="aspect-w-16 aspect-h-9">
+                      <img
+                        height={100}
+                        src={toy.image}
+                        alt={toy.name}
+                        className="w-full h-96 object-contain"
+                      />
+                    </div>
+                    <p className="text-gray-600 py-3">{toy.description}</p>
+                    <p>Price: ${toy.price}</p>
+                    <div className="py-3" style={{ display: 'flex', alignItems: 'center' }}>
+                      <AwesomeStarsRating
+                        value={toy.rating}
+                        size={20}
+                        isEdit={false}
+                        classNames={{
+                          hover: 'awesome-stars-rating-hover',
+                          selected: 'awesome-stars-rating-selected',
+                        }}
+                      />
+                    </div>
+                    <Link to={`/singleToys/${toy?._id}`}>
+                      <button className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
+                        View Details
+                      </button>
+                    </Link>
                   </div>
-                  <Link to={`/singleToys/${toy?._id}`}>
-                    <button className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
-                      View Details
-                    </button>
-                  </Link>
-                </div>
-              ))}
+            ))}
             </div>
-          </TabPanel>
+            </TabPanel>
         ))}
       </Tabs>
+
+      {!showMore && (
+        <button className="px-7 py-3 rounded-lg bg-lime-500 text-white" onClick={handleShowMore}>
+          Show More
+        </button>
+      )}
+
 
 
     </div>
