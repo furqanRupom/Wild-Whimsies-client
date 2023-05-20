@@ -52,8 +52,11 @@ const AddToysForm = () => {
       body: JSON.stringify(toysInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-    toast.success("new toys successfully added!");
+      .then((data) => {
+        console.log(data)
+        toast.success("new toys successfully added!");
+      });
+
     // Reset form fields
     setImage("");
     setName("");
