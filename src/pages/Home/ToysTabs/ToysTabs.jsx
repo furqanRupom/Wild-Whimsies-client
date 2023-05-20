@@ -16,7 +16,7 @@ const ToysTabs = () => {
 
 
   useEffect(() => {
-    fetch("https://wild-whimsies-server.vercel.app/toys")
+    fetch("https://wild-whimsies-server.vercel.app/AllToys")
       .then((res) => res.json())
       .then((data) => setTabToys(data));
   }, []);
