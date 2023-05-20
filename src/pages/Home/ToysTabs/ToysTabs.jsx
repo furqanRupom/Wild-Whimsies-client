@@ -131,7 +131,7 @@ const ToysTabs = () => {
                         />
                       </div>
                       <Link  to={`/singleToys/${toy?._id}`}>
-                        <button onClick={()=> toast.error('You have to log in first to view details')}   className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
+                        <button onClick={()=> !user && toast.error('You have to log in first to view details')}   className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
                           View Details
                         </button>
                       </Link>
