@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import AwesomeStarsRating from "react-awesome-stars-rating";
+import { Toaster, toast } from "react-hot-toast";
 import "./ToysTabs.css";
 import "react-tabs/style/react-tabs.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { ToysContext } from "../../../Providers/AuthProviders";
 
 const ToysTabs = () => {
   const [tabToys, setTabToys] = useState([]);
   const [showMore, setShowMore] = useState(false);
+  const {user} = useContext(ToysContext);
+
 
   useEffect(() => {
     fetch("https://wild-whimsies-server.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => setTabToys(data));
   }, []);
+
 
   const toysByCategory = tabToys.reduce((acc, toy) => {
     if (!acc[toy.sub_category]) {
@@ -125,17 +130,43 @@ const ToysTabs = () => {
                           }}
                         />
                       </div>
-                      <Link to={`/singleToys/${toy?._id}`}>
-                        <button className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
+                      <Link  to={`/singleToys/${toy?._id}`}>
+                        <button onClick={()=> toast.error('You have to log in first to view details')}   className="my-3 px-7 py-3 rounded-full bg-lime-500 text-white hover:bg-lime-600">
                           View Details
                         </button>
                       </Link>
                     </div>
+
                   ))}
             </div>
           </TabPanel>
         ))}
       </Tabs>
+      <Toaster
+        containerStyle={{
+          top: 500,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+        toastOptions={{
+          style: {
+            background: "#fff",
+            color: " #FF5733 ",
+            width: "300px",
+            fontWeight: "bold",
+            zIndex: "200",
+          },
+          success: {
+            iconTheme: {
+              primary: " #FF5733 ",
+              secondary: "#fff",
+            },
+          },
+        }}
+        duration="5000"
+        position="top-center"
+      />
 
       {!showMore && (
         <button
@@ -145,6 +176,9 @@ const ToysTabs = () => {
           Show More
         </button>
       )}
+
+
+
     </div>
   );
 };
