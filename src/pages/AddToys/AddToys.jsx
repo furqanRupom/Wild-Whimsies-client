@@ -56,14 +56,14 @@ const AddToysForm = () => {
     .then(data=>console.log(data))
     toast.success('new toys successfully added!')
     // Reset form fields
-    // setImage("");
-    // setName("");
-    // setSubCategory("");
-    // setQuantityAvailable(0);
-    // setRating(0);
-    // setDescription("");
-    // setPrice(0)
-    // form.reset()
+    setImage("");
+    setName("");
+    setSubCategory("");
+    setQuantityAvailable(0);
+    setRating(0);
+    setDescription("");
+    setPrice(0)
+    form.reset()
   };
 
   return (
