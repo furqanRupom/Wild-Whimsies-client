@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { ToysContext } from '../../../Providers/AuthProviders';
 
 const Footer = () => {
+  const {user} = useContext(ToysContext);
   return (
     <footer className="bg-lime-500 text-white">
       <div className="container mx-auto px-4 py-8">
@@ -62,21 +65,31 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/toys" className="hover:text-gray-200">
+                <Link to="/AllToystoys" className="hover:text-gray-200">
                   All Toys
                 </Link>
               </li>
-              <li>
-                <Link to="/mytoys" className="hover:text-gray-200">
+              {
+
+                user ? <>
+                     <li>
+                <Link to="/MyToys" className="hover:text-gray-200">
                   My Toys
                 </Link>
               </li>
               <li>
-                <Link to="/addtoys" className="hover:text-gray-200">
+                <Link to="/AddToys" className="hover:text-gray-200">
                   Add New Toys
                 </Link>
               </li>
-              <li>
+
+                </> :  <li>
+                <Link to="/login" className="hover:text-gray-200">
+                  Login
+                </Link>
+              </li>
+              }
+                  <li>
                 <Link to="/blogs" className="hover:text-gray-200">
                   Blogs
                 </Link>

@@ -77,7 +77,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link className="hover:underline" to="/">
+                <Link className="hover:underline" to="/blogs">
                   Blogs
                 </Link>
                 <Link className="hover:underline" to="/login">
@@ -166,7 +166,7 @@ const Header = () => {
               ) : (
                 <>
                   <li className="border-b-2 p-3  transition-all">
-                    <Link className="hover:underline" to="/">
+                    <Link className="hover:underline" to="/blogs">
                       Blogs
                     </Link>
                   </li>
