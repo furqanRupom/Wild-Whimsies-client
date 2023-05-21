@@ -6,6 +6,7 @@ import Mission from "../Mission/Mission";
 import ToysTabs from "../ToysTabs/ToysTabs";
 import {FaPaperPlane} from 'react-icons/fa';
 import useTitle from "../../../Hooks/useTittle";
+import Enhance from "../Enhance/Enhance";
 
 const  Home = () => {
     const location = useLocation()
@@ -14,11 +15,11 @@ const  Home = () => {
     return (
         <div>
               <Hero />
-
               <div className="px-8">
               <About />
               <Gallery />
               <ToysTabs />
+              <Enhance />
               <Mission />
 
 

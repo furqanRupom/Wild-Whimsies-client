@@ -2,6 +2,8 @@ import React from "react";
 import missionImg from "../../../assets/mission.png";
 
 const Mission = () => {
+
+
   return (
     <section className="mt-32 mb-16">
      <h2 className=" text-xl md:text-3xl font-Raleway font-semibold">
@@ -53,11 +55,14 @@ const Mission = () => {
         <div>
           <img
             src={missionImg}
-            className="h-full mx-auto lg:mx-0 object-cover rounded-[100%] ring ring-lime-300 "
+            className="h-full mx-auto lg:mx-0 object-cover rounded-[100%]  "
             alt=""
           />
         </div>
       </section>
+
+
+
     </section>
   );
 };

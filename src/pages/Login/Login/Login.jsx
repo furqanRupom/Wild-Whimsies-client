@@ -3,9 +3,12 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle } from "react-icons/fa";
 import { Link ,useLocation , useNavigate} from "react-router-dom";
 import { ToysContext } from "../../../Providers/AuthProviders";
+import useTitle from "../../../Hooks/useTittle";
 
 
 const Login = () => {
+
+
   const { LoginUser ,LogInWithGoogle} = useContext(ToysContext);
   const [show, setShow] = useState(false);
   const emailRef = useRef();
@@ -14,6 +17,8 @@ const Login = () => {
   const navigate = useNavigate()
   const from = location.state?.from?.pathname || '/'
   const [error,setError] = useState("")
+  const routesName = location.pathname;
+  useTitle(routesName.slice(1));
 
   const signInWithGoogle = ()=>{
       LogInWithGoogle()

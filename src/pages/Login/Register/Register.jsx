@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { ToysContext } from "../../../Providers/AuthProviders";
+import useTitle from "../../../Hooks/useTittle";
 
 const Register = () => {
   const { registerUser } = useContext(ToysContext);
@@ -15,7 +16,9 @@ const Register = () => {
   const [show, setShow] = useState(false);
   const [confirmShow, setConfirmShow] = useState(false);
   const navigate = useNavigate();
-
+  const location = useLocation()
+  const routesName = location.pathname;
+  useTitle(routesName.slice(1));
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target

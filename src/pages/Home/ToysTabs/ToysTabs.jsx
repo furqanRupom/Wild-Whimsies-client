@@ -169,12 +169,15 @@ const ToysTabs = () => {
       />
 
       {!showMore && (
+        <div className="text-center my-3">
         <button
-          className="px-7 py-3 rounded-lg bg-lime-500 text-white"
+          className="px-7 py-3  rounded-lg bg-lime-500 text-white"
           onClick={handleShowMore}
         >
           Show More
         </button>
+
+        </div>
       )}
 
 
