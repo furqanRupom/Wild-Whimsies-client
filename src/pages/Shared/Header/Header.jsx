@@ -120,7 +120,7 @@ const Header = () => {
         <div
           className={
             open === true
-              ? "absolute w-full  duration-700 bg-gray-100 z-20"
+              ? "absolute w-full -mt-3 duration-700 bg-white z-20"
               : "-translate-y-4"
           }
         >
