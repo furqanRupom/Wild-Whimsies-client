@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ToysContext } from '../../../Providers/AuthProviders';
 import logo from '../../../assets/logo.png'
 const Footer = () => {
-  const {user} = useContext(ToysContext);
+  const {user,loading} = useContext(ToysContext);
   return (
     <footer className="bg-white shadow">
       <div className="container mx-auto px-4 py-8">
@@ -98,7 +98,7 @@ const Footer = () => {
           </nav>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className={loading ? 'hidden' : "mt-8 text-center"}>
           <p className="text-xs opacity-70">&copy; {new Date().getFullYear()} Wild Whimsies. All rights reserved.</p>
           <p className="text-xs opacity-70">Designed and developed by Furqan Ahmad Rupom.</p>
         </div>
