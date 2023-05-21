@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { ToysContext } from '../../../Providers/AuthProviders';
-
+import logo from '../../../assets/logo.png'
 const Footer = () => {
   const {user} = useContext(ToysContext);
   return (
-    <footer className="bg-lime-500 text-white">
+    <footer className="bg-white shadow">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col space-y-4">
@@ -38,13 +38,13 @@ const Footer = () => {
           <div className="flex flex-col space-y-4">
             <h4 className="text-lg font-bold">Follow Us</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-gray-200">
+              <a href="#" className=" hover:text-gray-600">
                 <FaFacebook size={24} />
               </a>
-              <a href="#" className="text-white hover:text-gray-200">
+              <a href="#" className=" hover:text-gray-600">
                 <FaInstagram size={24} />
               </a>
-              <a href="#" className="text-white hover:text-gray-200">
+              <a href="#" className=" hover:text-gray-600">
                 <FaTwitter size={24} />
               </a>
             </div>
@@ -53,19 +53,19 @@ const Footer = () => {
 
         <div className="mt-8 flex flex-col  space-y-4 md:flex-row md:justify-between md:space-y-0 max-w-5xl">
           <div className="">
-            <h2 className="text-3xl font-bold">Wild Whimsies</h2>
+            <img className="h-10 object-cover" src={logo} alt="" />
             <p className="mt-2 text-sm">Unleash Your Wild Imagination</p>
           </div>
 
           <nav>
             <ul className="flex flex-wrap md:justify-center space-x-4">
               <li>
-                <Link to="/" className="hover:text-gray-200">
+                <Link to="/" className="hover:text-gray-600">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/AllToystoys" className="hover:text-gray-200">
+                <Link to="/AllToys" className="hover:text-gray-600">
                   All Toys
                 </Link>
               </li>
@@ -73,24 +73,24 @@ const Footer = () => {
 
                 user ? <>
                      <li>
-                <Link to="/MyToys" className="hover:text-gray-200">
+                <Link to="/MyToys" className="hover:text-gray-600">
                   My Toys
                 </Link>
               </li>
               <li>
-                <Link to="/AddToys" className="hover:text-gray-200">
+                <Link to="/AddToys" className="hover:text-gray-600">
                   Add New Toys
                 </Link>
               </li>
 
                 </> :  <li>
-                <Link to="/login" className="hover:text-gray-200">
+                <Link to="/login" className="hover:text-gray-600">
                   Login
                 </Link>
               </li>
               }
                   <li>
-                <Link to="/blogs" className="hover:text-gray-200">
+                <Link to="/blogs" className="hover:text-gray-600">
                   Blogs
                 </Link>
               </li>

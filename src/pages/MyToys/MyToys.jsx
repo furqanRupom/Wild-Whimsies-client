@@ -8,13 +8,12 @@ import { handler } from "daisyui";
 
 const MyToys = () => {
   const { user } = useContext(ToysContext);
-  const [sortOrder, setSortOrder] = useState("");
-  const [sortBy, setSortBy] = useState("");
   const location = useLocation();
   const routesName = location.pathname;
   useTitle(routesName.slice(1));
   console.log(user);
   const [myToys, setMyToys] = useState([]);
+  const [sortOrder, setSortOrder] = useState("");
 
   const fetchData = () => {
     let url = `https://wild-whimsies-server.vercel.app/MyToys?sellerEmail=${user?.email}&sortOrder=${sortOrder}`;

@@ -26,7 +26,7 @@ const Header = () => {
     <header className="relative">
       <div>
         <div className="bg-lime-500 text-white flex justify-between px-4  py-1 items-center">
-          <div className="flex space-x-2 lg:space-x-4 text-xs font-Raleway font-[500]">
+          <div className="flex space-x-2 lg:space-x-4 text-xs  font-[500]">
             <p className="hidden sm:block">Call us: +1 231 567 910</p>
             <p>
               <span>
@@ -46,10 +46,10 @@ const Header = () => {
 
       </div>
 
-      <nav className="bg-gray-100 p-2 flex justify-between items-center relative shadow">
+      <nav className="p-2 flex justify-between items-center relative shadow py-4">
         <div className="lg:flex lg:items-center lg:justify-center lg:space-x-6">
-          <img className="h-10 md:h-14 object-cover" src={logo} alt="" />
-          <div className="hidden lg:flex space-x-8 items-center mt-2 font-Raleway font-[500]">
+          <img className=" h-6 sm:h-8  md:h-10  object-cover" src={logo} alt="" />
+          <div className="hidden lg:flex space-x-8 items-center  font-Raleway font-[500]">
             <Link className="hover:underline" to="/">
               Home
             </Link>
