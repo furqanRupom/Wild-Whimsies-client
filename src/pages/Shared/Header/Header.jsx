@@ -101,7 +101,7 @@ const Header = () => {
                   src={user?.photoURL}
                   alt="logo"
                 />
-                <h3 className="font-Raleway absolute z-20 w-full p-3 rounded bg-white  font-semibold text-lime-500 text-xs left-0 hidden group-hover:block">
+                <h3 className="font-Raleway absolute z-50 w-full p-3 rounded bg-white  font-semibold text-lime-500 text-xs left-0 hidden group-hover:block">
                   {user?.displayName}
                 </h3>
               </>
